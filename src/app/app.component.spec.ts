@@ -32,4 +32,18 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.content span')?.textContent).toContain('angular-airlines app is running!');
   });
+
+  it(`should have angular version'`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.version).toBeDefined();
+  });
+
+  it(`should call some function'`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    const inputValue = 'some string';
+    const result = app.someFunction(inputValue);
+    expect(result).toBe(inputValue);
+  });
 });
